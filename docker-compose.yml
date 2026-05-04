@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cooperative_app
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8090:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: cooperative_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: cooperative_db
+      MYSQL_USER: cooperative_user
+      MYSQL_PASSWORD: cooperative_pass
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: cooperative_pma
+    restart: always
+    ports:
+      - "8091:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: cooperative_user
+      PMA_PASSWORD: cooperative_pass
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:

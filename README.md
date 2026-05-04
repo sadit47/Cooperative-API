@@ -91,7 +91,7 @@ https://cooperative-api-production-e09a.up.railway.app
 ## 🌐 Local Development
 
 ```text id="url1"
-API: http://localhost:8090/api
+API: http://localhost:8090/
 phpMyAdmin: http://localhost:8089
 ```
 
@@ -222,7 +222,8 @@ Cooperative API.postman_collection.json
 
 ### Local
 
-base_url = http://localhost:8090/api
+base_url = http://localhost:8090/
+
 public_token =
 staff_token =
 
@@ -230,7 +231,7 @@ staff_token =
 
 ### Production (Railway)
 
-base_url = https://cooperative-api-production-e09a.up.railway.app/api
+base_url = https://cooperative-api-production-e09a.up.railway.app/
 
 ---
 

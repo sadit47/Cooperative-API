@@ -1,19 +1,10 @@
 #!/bin/sh
 
-# 🔥 สร้าง .env ถ้ายังไม่มี
-if [ ! -f .env ]; then
-  cp .env.example .env
+echo "PORT is: $PORT"
+
+if [ -z "$PORT" ]; then
+  echo "PORT not set, fallback to 8080"
+  PORT=8080
 fi
 
-# 🔥 ใช้ APP_KEY จาก Railway (ถ้ามีจะไม่ทับ)
-php artisan key:generate --force || true
-
-# 🔥 clear cache
-php artisan config:clear || true
-php artisan cache:clear || true
-
-# 🔥 migrate (กัน DB ยังไม่มา)
-php artisan migrate --force || true
-
-# 🔥 รัน Laravel ตรง ๆ (ไม่ใช้ Apache)
-php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
+php artisan serve --host=0.0.0.0 --port=$PORT

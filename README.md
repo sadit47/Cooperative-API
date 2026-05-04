@@ -78,7 +78,17 @@ docker compose exec app php artisan migrate:fresh --seed
 
 ---
 
-## 🌐 Application URL
+---
+
+## 🌐 Live API
+```text id="url1"
+Deployed on Railway:
+https://cooperative-api-production-e09a.up.railway.app
+```
+
+---
+
+## 🌐 Local Development
 
 ```text id="url1"
 API: http://localhost:8090/api
@@ -210,11 +220,17 @@ Cooperative API.postman_collection.json
 2. Import → เลือกไฟล์ `.json`
 3. ตั้งค่า Environment:
 
-```text id="pm2"
+### Local
+
 base_url = http://localhost:8090/api
 public_token =
 staff_token =
-```
+
+---
+
+### Production (Railway)
+
+base_url = https://cooperative-api-production-e09a.up.railway.app/api
 
 ---
 

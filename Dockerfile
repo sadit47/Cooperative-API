@@ -22,10 +22,19 @@ WORKDIR /var/www/html
 
 COPY . .
 
-# 🔥 สำคัญมาก (คุณยังไม่มี)
+# 🔥 สร้าง .env
+RUN cp .env.example .env
+
+# 🔥 install dependency
 RUN composer install --no-dev --optimize-autoloader
 
+# 🔥 permission
 RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 775 storage bootstrap/cache
+
+# 🔥 clear cache
+RUN php artisan config:clear
+RUN php artisan config:cache
 
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh

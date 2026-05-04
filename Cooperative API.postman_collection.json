@@ -1,0 +1,830 @@
+{
+  "info": {
+    "_postman_id": "d150c588-d941-4908-bd0f-b6dc11a5030b",
+    "name": "Cooperative API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49443281",
+    "_collection_link": "https://go.postman.co/collection/49443281-d150c588-d941-4908-bd0f-b6dc11a5030b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Test3\",\r\n  \"email\": \"test3@test.com\",\r\n  \"password\": \"password\",\r\n  \"password_confirmation\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Public",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"test2@test.com\",\r\n  \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Staff",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"staff@test.com\",\r\n  \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "Bearer 1|7F4LUb5DpwHc7Jw4xVww6i5C3PFgHbI6dQxVTns29a8fb2af",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Role] Public Access Staff Endpoint - Fail",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{public_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Role] Staff Access Public Endpoint - Fail",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Create Cooperative Request (Success) User A",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{public_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 4\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 15,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Cooperative Request (Duplicate Name - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{public_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 1\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 15,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Cooperative Request (Members < 10 - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{public_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 2\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 5,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Cooperative Requests User A",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{public_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Cooperative Request user B",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "Bearer 4|Eru4qjUob65SPpMjwDNJjqfRsAn60xtMF0rMoT3u5c76dcaf",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cooperative_name\": \"User B Cooperative 2\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 20,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Chiang Mai\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Cooperative Requests User B",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "Bearer 4|Eru4qjUob65SPpMjwDNJjqfRsAn60xtMF0rMoT3u5c76dcaf",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Request Detail (Other User - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{public_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/public/cooperative-requests/3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cooperative-requests",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Staff",
+      "item": [
+        {
+          "name": "Get All Cooperative Requests",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter Requests By Pending Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests?status=pending",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "pending"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve Cooperative Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"review_note\": \"Application complies with cooperative regulations\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests/7/approve",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests",
+                "7",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve Cooperative Request (Already Reviewed - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"review_note\": \"Approved after verification of submitte \"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests/5/approve",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests",
+                "5",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve Cooperative Request (Missing Note - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests/6/approve",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests",
+                "6",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject Cooperative Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"review_note\": \"Submitted information is incorrect or inconsistent\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests/5/reject",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests",
+                "5",
+                "reject"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject Cooperative Request (Already Reviewed - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"review_note\": \"Submitted information is incorrect or inconsistent\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests/7/reject",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests",
+                "7",
+                "reject"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject Cooperative Request (Missing Note - Fail)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{staff_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/staff/cooperative-requests/6/reject",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "staff",
+                "cooperative-requests",
+                "6",
+                "reject"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

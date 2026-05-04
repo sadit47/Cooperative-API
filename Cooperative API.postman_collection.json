@@ -46,7 +46,13 @@
           "name": "Login Public",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n  \"email\": \"test2@test.com\",\r\n  \"password\": \"password\"\r\n}",
@@ -220,7 +226,13 @@
               ]
             },
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 4\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 15,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",

@@ -1,12 +1,20 @@
 #!/bin/sh
 
-echo "PORT is: $PORT"
-
-# ถ้า Railway ไม่ส่งมา → fallback
 if [ -z "$PORT" ]; then
-  echo "PORT not set, fallback to 8080"
   PORT=8080
 fi
 
-# 🔥 ใช้ตัวแปรจริง (สำคัญมาก)
+# setup env
+if [ ! -f .env ]; then
+  cp .env.example .env
+fi
+
+php artisan key:generate --force || true
+php artisan config:clear || true
+php artisan cache:clear || true
+
+# 🔥 สำคัญมาก
+php artisan migrate --force || true
+php artisan db:seed --force || true
+
 php artisan serve --host=0.0.0.0 --port=$PORT

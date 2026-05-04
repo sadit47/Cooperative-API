@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && docker-php-ext-install pdo pdo_mysql zip
 
-# 🔥 FIX MPM แบบไม่พัง build
+# FIX MPM
 RUN a2dismod mpm_event || true
 RUN a2dismod mpm_worker || true
 RUN a2enmod mpm_prefork
@@ -21,6 +21,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 COPY . .
+
+# 🔥 เพิ่มตรงนี้
+RUN composer install --no-dev --optimize-autoloader
+
+RUN chown -R www-data:www-data /var/www/html
 
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh

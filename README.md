@@ -45,10 +45,18 @@ REST API สำหรับระบบยื่นคำขอจัดตั�
 ## ⚙️ Installation
 
 ```bash id="setup1"
-git clone https://github.com/sadit47/cooperative-api.git
+git clone https://github.com/sadit47/Cooperative-API.git
 cd cooperative-api
 
+cp .env.example .env
+
 docker compose up -d --build
+
+docker compose exec app composer install
+
+docker compose exec app php artisan key:generate
+
+docker compose exec app php artisan migrate
 ```
 
 ---

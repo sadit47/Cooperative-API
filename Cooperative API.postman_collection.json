@@ -31,11 +31,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/register",
+              "raw": "{{base_url}}/api/register",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "register"
               ]
             }
@@ -55,7 +56,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"email\": \"test2@test.com\",\r\n  \"password\": \"password\"\r\n}",
+              "raw": "{\r\n  \"email\": \"public@test.com\",\r\n  \"password\": \"password\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -63,11 +64,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/login",
+              "raw": "{{base_url}}/api/login",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "login"
               ]
             }
@@ -95,11 +97,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/login",
+              "raw": "{{base_url}}/api/login",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "login"
               ]
             }
@@ -114,7 +117,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "Bearer 1|7F4LUb5DpwHc7Jw4xVww6i5C3PFgHbI6dQxVTns29a8fb2af",
+                  "value": "{{public_token}}",
                   "type": "string"
                 }
               ]
@@ -127,12 +130,22 @@
                 "type": "text"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"test2@test.com\",\r\n  \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "{{base_url}}/logout",
+              "raw": "{{base_url}}/api/logout",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "logout"
               ]
             }
@@ -161,11 +174,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests",
+              "raw": "{{base_url}}/api/staff/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests"
               ]
@@ -195,11 +209,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -235,7 +250,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 4\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 15,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
+              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 7\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 14,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -243,11 +258,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -278,7 +294,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 1\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 15,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
+              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 5\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 15,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -286,11 +302,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -321,7 +338,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 2\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 5,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
+              "raw": "{\r\n  \"cooperative_name\": \"Test Cooperative 2\",\r\n  \"cooperative_type\": \"Agriculture\",\r\n  \"initial_members\": 6,\r\n  \"objective\": \"Support farmers\",\r\n  \"address\": \"Bangkok\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -329,11 +346,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -363,11 +381,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -406,11 +425,12 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -440,11 +460,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests",
+              "raw": "{{base_url}}/api/public/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests"
               ]
@@ -474,11 +495,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/public/cooperative-requests/3",
+              "raw": "{{base_url}}/api/public/cooperative-requests/3",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "public",
                 "cooperative-requests",
                 "3"
@@ -514,11 +536,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests",
+              "raw": "{{base_url}}/api/staff/cooperative-requests",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests"
               ]
@@ -548,11 +571,12 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests?status=pending",
+              "raw": "{{base_url}}/api/staff/cooperative-requests?status=pending",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests"
               ],
@@ -597,14 +621,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests/7/approve",
+              "raw": "{{base_url}}/api/staff/cooperative-requests/3/approve",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests",
-                "7",
+                "3",
                 "approve"
               ]
             }
@@ -642,14 +667,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests/5/approve",
+              "raw": "{{base_url}}/api/staff/cooperative-requests/3/approve",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests",
-                "5",
+                "3",
                 "approve"
               ]
             }
@@ -687,14 +713,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests/6/approve",
+              "raw": "{{base_url}}/api/staff/cooperative-requests/2/approve",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests",
-                "6",
+                "2",
                 "approve"
               ]
             }
@@ -732,14 +759,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests/5/reject",
+              "raw": "{{base_url}}/api/staff/cooperative-requests/2/reject",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests",
-                "5",
+                "2",
                 "reject"
               ]
             }
@@ -777,14 +805,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests/7/reject",
+              "raw": "{{base_url}}/api/staff/cooperative-requests/2/reject",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests",
-                "7",
+                "2",
                 "reject"
               ]
             }
@@ -822,14 +851,15 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/staff/cooperative-requests/6/reject",
+              "raw": "{{base_url}}/api/staff/cooperative-requests/1/reject",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
+                "api",
                 "staff",
                 "cooperative-requests",
-                "6",
+                "1",
                 "reject"
               ]
             }

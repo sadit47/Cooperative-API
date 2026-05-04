@@ -5,6 +5,13 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Public\CooperativeRequestController as PublicCooperativeRequestController;
 use App\Http\Controllers\Api\Staff\CooperativeRequestController as StaffCooperativeRequestController;
 
+Route::get('/test', function () {
+    return response()->json([
+        'success' => true,
+        'message' => 'API is working'
+    ]);
+});
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 

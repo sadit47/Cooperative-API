@@ -65,7 +65,7 @@ class CooperativeRequestController extends Controller
         }
 
         $validated = $request->validate([
-            'review_note' => 'nullable|string',
+            'review_note' => 'required|string',
         ]);
 
         $item->update([

@@ -7,8 +7,10 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && docker-php-ext-install pdo pdo_mysql zip
 
-# 🔥 FIX MPM (สำคัญมาก)
-RUN a2dismod mpm_event mpm_worker && a2enmod mpm_prefork
+# 🔥 FIX MPM แบบไม่พัง build
+RUN a2dismod mpm_event || true
+RUN a2dismod mpm_worker || true
+RUN a2enmod mpm_prefork
 
 RUN a2enmod rewrite
 

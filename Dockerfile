@@ -14,3 +14,8 @@ COPY apache.conf /etc/apache2/sites-available/000-default.conf
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
+
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+CMD ["start.sh"]

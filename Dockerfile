@@ -22,7 +22,7 @@ WORKDIR /var/www/html
 
 COPY . .
 
-# 🔥 เพิ่มตรงนี้
+# 🔥 สำคัญมาก (คุณยังไม่มี)
 RUN composer install --no-dev --optimize-autoloader
 
 RUN chown -R www-data:www-data /var/www/html
